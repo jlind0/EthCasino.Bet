@@ -15,28 +15,68 @@ export enum StreetBet {
     ELEVEN = 11,
     TWELVE = 12,
 }
+export const StreetBetToString: Record<StreetBet, string> = {
+    [StreetBet.ONE]: "1-2-3",
+    [StreetBet.TWO]: "4-5-6",
+    [StreetBet.THREE]: "7-8-9",
+    [StreetBet.FOUR]: "10-11-12",
+    [StreetBet.FIVE]: "13-14-15",
+    [StreetBet.SIX]: "16-17-18",
+    [StreetBet.SEVEN]: "19-20-21",
+    [StreetBet.EIGHT]: "22-23-24",
+    [StreetBet.NINE]: "25-26-27",
+    [StreetBet.TEN]: "28-29-30",
+    [StreetBet.ELEVEN]: "31-32-33",
+    [StreetBet.TWELVE]: "34-35-36"
+};
 export enum ColumnBet {
     FIRST = 0,
     SECOND = 1,
     THIRD = 2,
 }
+export const ColumnBetToString: Record<ColumnBet, string> = {
+    [ColumnBet.FIRST]: "1st",
+    [ColumnBet.SECOND]: "2nd",
+    [ColumnBet.THIRD]: "3rd"
+};
+
 export enum ParityBet {
     EVEN = 1,
     ODD = 2,
 }
+export const ParityBetToString: Record<ParityBet, string> = {
+    [ParityBet.EVEN]: "Even",
+    [ParityBet.ODD]: "Odd"
+};
 export enum ColorBet {
     RED = 1,
     BLACK = 2,
 }
+export const ColorBetToString: Record<ColorBet, string> = {
+    [ColorBet.RED]: "Red",
+    [ColorBet.BLACK]: "Black",
+};
+
 export enum DozenBet {
     FIRST = 1,
     SECOND = 2,
     THIRD = 3,
 }
+export const DozenBetToString: Record<DozenBet, string> = {
+    [DozenBet.FIRST]: "1st 12 (1-12)",
+    [DozenBet.SECOND]: "2nd 12 (13-24)",
+    [DozenBet.THIRD]: "3rd 12 (25-36)",
+};
+
 export enum EighteenBet {
     FIRST = 1,
     SECOND = 2,
 }
+export const EighteenBetToString: Record<EighteenBet, string> = {
+    [EighteenBet.FIRST]: "1 to 18",
+    [EighteenBet.SECOND]: "19 to 36",
+};
+
 export enum DoubleStreetBet {
     FIRST = 1,
     SECOND = 2,
@@ -50,6 +90,20 @@ export enum DoubleStreetBet {
     TENTH = 10,
     ELEVENTH = 11,
 }
+export const DoubleStreetBetToString: Record<DoubleStreetBet, string> = {
+    [DoubleStreetBet.FIRST]: "1-6",
+    [DoubleStreetBet.SECOND]: "4-9",
+    [DoubleStreetBet.THIRD]: "7-12",
+    [DoubleStreetBet.FOURTH]: "10-15",
+    [DoubleStreetBet.FIFTH]: "13-18",
+    [DoubleStreetBet.SIXTH]: "16-21",
+    [DoubleStreetBet.SEVENTH]: "19-24",
+    [DoubleStreetBet.EIGHTH]: "22-27",
+    [DoubleStreetBet.NINTH]: "25-30",
+    [DoubleStreetBet.TENTH]: "28-33",
+    [DoubleStreetBet.ELEVENTH]: "31-36",
+};
+
 export abstract class BetViewModel<TParam> {
     isOpen: boolean = false;
     isProcessing: boolean = false;

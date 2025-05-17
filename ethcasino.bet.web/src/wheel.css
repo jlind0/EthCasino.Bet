@@ -135,6 +135,9 @@
 .outside-section {
     background-color: darkgreen;
 }
+.zero-item {
+    background-color: darkgreen;
+}
 .roulette-table-container * {
     box-sizing: border-box;
     margin: 0;

@@ -92,6 +92,7 @@ export class WheelStore implements ContractModel {
             runInAction(() => {
                 this.wheelAddress = deployedAddress;
             });
+            await this.handleLoadContract();
         } finally {
             runInAction(() => {
                 this.deploying = false;
