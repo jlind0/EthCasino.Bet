@@ -1,401 +1,159 @@
-import { CButton, CModal, CModalBody, CModalHeader, CModalTitle, CForm, CFormInput, CModalFooter } from "@coreui/react";
-import { ColorBet, ColorBetToString, ColumnBet, ColumnBetToString, DoubleStreetBet, DoubleStreetBetToString, DozenBet, DozenBetToString, EighteenBet, EighteenBetToString, ParityBet, ParityBetToString, StreetBet, StreetBetToString } from "./wheel.bet.store";
-import { BetViewModelParameter } from "./wheel.views.common";
+import React from "react";
 import { observer } from "mobx-react-lite";
+import {
+    CButton,
+    CModal,
+    CModalBody,
+    CModalHeader,
+    CModalTitle,
+    CForm,
+    CFormInput,
+    CModalFooter
+} from "@coreui/react";
+import { BetViewModelParameter } from "./wheel.views.common";
 
-export const PlaceStreetBetView = observer(({ parameter }: BetViewModelParameter<StreetBet>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Street Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>{parameter && parameter.parameter !== undefined && StreetBetToString[parameter.parameter]}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceColumnBetView = observer(({ parameter }: BetViewModelParameter<ColumnBet>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Column Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Column: {parameter && parameter.parameter !== undefined && (ColumnBetToString[parameter.parameter])}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceParityBetView = observer(({ parameter }: BetViewModelParameter<ParityBet>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Parity Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Parity: {parameter && parameter.parameter !== undefined && (ParityBetToString[parameter.parameter])}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceColorBetView = observer(({ parameter }: BetViewModelParameter<ColorBet>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Color Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Color: {parameter && parameter.parameter !== undefined && (ColorBetToString[parameter.parameter])}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceDozenBetView = observer(({ parameter }: BetViewModelParameter<DozenBet>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Dozen Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Dozen: {parameter && parameter.parameter !== undefined && (DozenBetToString[parameter.parameter])}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceEighteenBetView = observer(({ parameter }: BetViewModelParameter<EighteenBet>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Eighteen Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Eighteen: {parameter && parameter.parameter !== undefined && (EighteenBetToString[parameter.parameter])}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceDoubleStreetBetView = observer(({ parameter }: BetViewModelParameter<DoubleStreetBet>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Double Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Double Street: {parameter && parameter.parameter !== undefined && (DoubleStreetBetToString[parameter.parameter])}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceSplitBetView = observer(({ parameter }: BetViewModelParameter<string>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Split Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Split: {parameter && parameter.parameter !== undefined && (parameter.parameter)}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceCornerBetView = observer(({ parameter }: BetViewModelParameter<string>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Corner Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Corner: {parameter && parameter.parameter !== undefined && (parameter.parameter)}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceStraightUpBetView = observer(({ parameter }: BetViewModelParameter<string>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Straight Up Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Number: {parameter && parameter.parameter !== undefined && (parameter.parameter)}</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
-export const PlaceTopLineBetView = observer(({ parameter }: BetViewModelParameter<void>) => (
-    <>
-        {parameter && (
-            <>
-                <CModal
-                    visible={parameter.isOpen}
-                    onClose={() => parameter && (parameter.isOpen = false)}
-                    aria-labelledby="lblAddMember"
-                >
-                    <CModalHeader>
-                        <CModalTitle id="lblAddMember">Place Top Line Bet</CModalTitle>
-                    </CModalHeader>
-                    <CModalBody>
-                        <CForm>
-                            <p>Top Line</p>
-                            <CFormInput type="number" id="betAmount"
-                                label="Bet Amount" value={parameter.betAmount}
-                                onChange={(e) => parameter && (parameter.betAmount = Number(e.target.value))} />
-                        </CForm>
-                    </CModalBody>
-                    <CModalFooter>
-                        <CButton color="secondary" onClick={() => parameter && (parameter.isOpen = false)}>
-                            Close
-                        </CButton>
-                        <CButton
-                            color="primary"
-                            onClick={() => parameter && parameter.placeBet()}
-                        >
-                            Place Bet
-                        </CButton>
-                    </CModalFooter>
-                </CModal>
-            </>
-        )}
-    </>
-));
+interface PlaceBetModalProps<T> {
+    isOpen: boolean;
+    onClose: () => void;
+    betAmount: number;
+    onAmountChange: (amount: number) => void;
+    placeBet: () => void;
+    title: string;
+    renderParameter: () => React.ReactNode;
+}
+
+function PlaceBetModal<T>({
+    isOpen,
+    onClose,
+    betAmount,
+    onAmountChange,
+    placeBet,
+    title,
+    renderParameter
+}: PlaceBetModalProps<T>) {
+    return (
+        <CModal visible={isOpen} onClose={onClose} aria-labelledby="lblPlaceBet">
+            <CModalHeader>
+                <CModalTitle id="lblPlaceBet">{title}</CModalTitle>
+            </CModalHeader>
+            <CModalBody>
+                <CForm>
+                    {renderParameter()}
+                    <CFormInput
+                        type="number"
+                        id="betAmount"
+                        label="Bet Amount"
+                        value={betAmount}
+                        onChange={(e) => onAmountChange(Number(e.target.value))}
+                    />
+                </CForm>
+            </CModalBody>
+            <CModalFooter>
+                <CButton color="secondary" onClick={onClose}>
+                    Close
+                </CButton>
+                <CButton color="primary" onClick={placeBet}>
+                    Place Bet
+                </CButton>
+            </CModalFooter>
+        </CModal>
+    );
+}
+
+function createPlaceBetView<T>(
+    title: string,
+    renderParameter: (param: T) => string
+) {
+    return observer(({ parameter }: BetViewModelParameter<T>) => {
+        if (!parameter) return null;
+        return (
+            <PlaceBetModal
+                isOpen={parameter.isOpen}
+                onClose={() => (parameter.isOpen = false)}
+                betAmount={parameter.betAmount}
+                onAmountChange={(amount) => (parameter.betAmount = amount)}
+                placeBet={() => parameter.placeBet()}
+                title={title}
+                renderParameter={() => (
+                    <p>
+                        {parameter.parameter !== undefined && renderParameter(parameter.parameter)}
+                    </p>
+                )}
+            />
+        );
+    });
+}
+
+// Usage examples
+import {
+    StreetBet,
+    StreetBetToString,
+    ColumnBet,
+    ColumnBetToString,
+    ParityBet,
+    ParityBetToString,
+    ColorBet,
+    ColorBetToString,
+    DozenBet,
+    DozenBetToString,
+    EighteenBet,
+    EighteenBetToString,
+    DoubleStreetBet,
+    DoubleStreetBetToString
+} from "./wheel.bet.store";
+
+export const PlaceStreetBetView = createPlaceBetView<StreetBet>(
+    "Place Street Bet",
+    (param) => StreetBetToString[param]
+);
+
+export const PlaceColumnBetView = createPlaceBetView<ColumnBet>(
+    "Place Column Bet",
+    (param) => ColumnBetToString[param]
+);
+
+export const PlaceParityBetView = createPlaceBetView<ParityBet>(
+    "Place Parity Bet",
+    (param) => ParityBetToString[param]
+);
+
+export const PlaceColorBetView = createPlaceBetView<ColorBet>(
+    "Place Color Bet",
+    (param) => ColorBetToString[param]
+);
+
+export const PlaceDozenBetView = createPlaceBetView<DozenBet>(
+    "Place Dozen Bet",
+    (param) => DozenBetToString[param]
+);
+
+export const PlaceEighteenBetView = createPlaceBetView<EighteenBet>(
+    "Place Eighteen Bet",
+    (param) => EighteenBetToString[param]
+);
+
+export const PlaceDoubleStreetBetView = createPlaceBetView<DoubleStreetBet>(
+    "Place Double Street Bet",
+    (param) => DoubleStreetBetToString[param]
+);
+
+// For bets where parameter is just a string or void:
+export const PlaceSplitBetView = createPlaceBetView<string>(
+    "Place Split Bet",
+    (param) => param
+);
+
+export const PlaceCornerBetView = createPlaceBetView<string>(
+    "Place Corner Bet",
+    (param) => param
+);
+
+export const PlaceStraightUpBetView = createPlaceBetView<string>(
+    "Place Straight Up Bet",
+    (param) => param
+);
+
+export const PlaceTopLineBetView = createPlaceBetView<void>(
+    "Place Top Line Bet",
+    () => "Top Line"
+);
