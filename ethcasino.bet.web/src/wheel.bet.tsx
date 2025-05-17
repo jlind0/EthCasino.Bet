@@ -12,7 +12,7 @@ import {
 } from "@coreui/react";
 import { BetViewModelParameter } from "./wheel.views.common";
 
-interface PlaceBetModalProps<T> {
+interface PlaceBetModalProps {
     isOpen: boolean;
     onClose: () => void;
     betAmount: number;
@@ -22,7 +22,7 @@ interface PlaceBetModalProps<T> {
     renderParameter: () => React.ReactNode;
 }
 
-function PlaceBetModal<T>({
+function PlaceBetModal({
     isOpen,
     onClose,
     betAmount,
@@ -30,7 +30,7 @@ function PlaceBetModal<T>({
     placeBet,
     title,
     renderParameter
-}: PlaceBetModalProps<T>) {
+}: PlaceBetModalProps) {
     return (
         <CModal visible={isOpen} onClose={onClose} aria-labelledby="lblPlaceBet">
             <CModalHeader>
