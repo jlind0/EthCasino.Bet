@@ -126,7 +126,15 @@
         bottom: 0;
         margin: auto;
     }
-
+.column-item{
+    background-color: darkgreen;
+}
+.doz-item {
+    background-color: darkgreen;
+}
+.outside-section {
+    background-color: darkgreen;
+}
 .roulette-table-container * {
     box-sizing: border-box;
     margin: 0;
@@ -3208,6 +3216,7 @@ a[class*="link"].bottom {
         .link-floor[data-target-cells="2-4-6-8-10-11-13-15-17-20-22-24-26-28-29-31-33-35"]:hover ~ .cell[data-cell="24"],
         .link-floor[data-target-cells="2-4-6-8-10-11-13-15-17-20-22-24-26-28-29-31-33-35"]:hover ~ .cell[data-cell="26"],
         .link-floor[data-target-cells="2-4-6-8-10-11-13-15-17-20-22-24-26-28-29-31-33-35"]:hover ~ .cell[data-cell="28"],
+        .link-floor[data-target-cells="2-4-6-8-10-11-13-15-17-20-22-24-26-28-29-31-33-35"]:hover ~ .cell[data-cell="29"],
         .link-floor[data-target-cells="2-4-6-8-10-11-13-15-17-20-22-24-26-28-29-31-33-35"]:hover ~ .cell[data-cell="39"],
         .link-floor[data-target-cells="2-4-6-8-10-11-13-15-17-20-22-24-26-28-29-31-33-35"]:hover ~ .cell[data-cell="31"],
         .link-floor[data-target-cells="2-4-6-8-10-11-13-15-17-20-22-24-26-28-29-31-33-35"]:hover ~ .cell[data-cell="33"],
