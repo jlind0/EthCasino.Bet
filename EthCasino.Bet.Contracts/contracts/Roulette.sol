@@ -158,7 +158,7 @@ contract Wheel is VRFConsumerBaseV2, Ownable, ReentrancyGuard{
     event NewSpinOpened();
     event SpinStarted();
     event Spun();
-    function openAccount(string memory nick) public payable{
+    function openAccount(string memory nick) public nonReentrant payable{
         if(accounts[msg.sender].owner == msg.sender)
             revert AccountExists();
         if(msg.value < mindeposit)
@@ -198,7 +198,7 @@ contract Wheel is VRFConsumerBaseV2, Ownable, ReentrancyGuard{
             revert AccountNotFound();
         return accounts[msg.sender];
     }
-    function fundAccount() public payable{
+    function fundAccount() public nonReentrant payable{
          if(accounts[msg.sender].owner != msg.sender)
             revert AccountNotFound();
         Account storage acct = accounts[msg.sender];
@@ -260,7 +260,7 @@ contract Wheel is VRFConsumerBaseV2, Ownable, ReentrancyGuard{
             revert TransferFailed();
     }
     error NotEnoughTimePassed();
-    function openBets() public onlyOwner returns (uint){
+    function openBets() public nonReentrant returns (uint){
         if(!isOpenForWithdrawl)
             revert IsNotOpenForWithdrawl();
         if(spinIds.length > 1)
@@ -309,7 +309,7 @@ contract Wheel is VRFConsumerBaseV2, Ownable, ReentrancyGuard{
     error InvalidBet();
     error BetsNotClosed();
     mapping(uint => uint) requestToSpin;
-    function spinTheWheel() onlyOwner public{
+    function spinTheWheel() public nonReentrant{
         Spin storage currentSpin = spins[spinIds[spinIds.length - 1]];
         if(block.timestamp < currentSpin.startTime + timeForBet)
             revert BetsNotClosed();

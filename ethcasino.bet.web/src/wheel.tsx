@@ -5,6 +5,7 @@ import { StreetBet, DoubleStreetBet, ColumnBet, DozenBet, ColorBet, ParityBet, E
 import { WheelStoreParameter } from './wheel.views.common';
 import { CButton } from '@coreui/react';
 import { PlaceColorBetView, PlaceColumnBetView, PlaceParityBetView, PlaceStreetBetView, PlaceDozenBetView, PlaceEighteenBetView, PlaceDoubleStreetBetView, PlaceSplitBetView, PlaceCornerBetView, PlaceStraightUpBetView, PlaceTopLineBetView } from './wheel.bet';
+import { OwnerView } from './wheel.owner';
 const wheelStore = new WheelStore();
 
 const WheelView = observer(({ store }: WheelStoreParameter) => (
@@ -12,6 +13,7 @@ const WheelView = observer(({ store }: WheelStoreParameter) => (
         <CButton color="primary" onClick={() => store.handleLoadContract()} disabled={store.isLoading}>
             {store.isLoading ? 'Loading contract...' : 'Load Contract'}
         </CButton>
+        <OwnerView viewModel={store.ownerVM} />
         <PlaceStreetBetView parameter={store.streetVM} />
         <PlaceColumnBetView parameter={store.columnVM} />
         <PlaceParityBetView parameter={store.pairityVM} />

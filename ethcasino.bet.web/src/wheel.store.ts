@@ -3,6 +3,7 @@ import { ethers } from 'ethers';
 import { Wheel } from './typechain/contracts/Roulette.sol';
 import { Wheel__factory } from './typechain/factories/contracts/Roulette.sol';
 import { DoubleStreetBetViewModel, StreetBetViewModel, SplitBetViewModel, CornerBetViewModel, ColumnBetViewModel, DozenBetViewModel, ColorBetViewModel, EighteenBetViewModel, StraightUpBetViewModel, TopLineBetViewModel, ParityBetViewModel } from './wheel.bet.store';
+import { OwnerViewModel } from './wheel.owner.store';
 
 const subscriptionId: string = import.meta.env.VITE_CHAINLINK_VRF_SUBSCRIPTION_ID;
 
@@ -27,6 +28,7 @@ export class WheelStore implements ContractModel {
     eighteenVM: EighteenBetViewModel;
     straightVM: StraightUpBetViewModel;
     topLineVM: TopLineBetViewModel;
+    ownerVM: OwnerViewModel;
     
     constructor() {
         makeAutoObservable(this);
@@ -41,6 +43,7 @@ export class WheelStore implements ContractModel {
         this.eighteenVM = new EighteenBetViewModel(this);
         this.straightVM = new StraightUpBetViewModel(this);
         this.topLineVM = new TopLineBetViewModel(this);
+        this.ownerVM = new OwnerViewModel(this);
 
     }
     async handleSetupProvider() {
@@ -114,6 +117,7 @@ export class WheelStore implements ContractModel {
                     this.numbers.set(n.name, n);
                 });
             });
+            await this.ownerVM.load();
 
         } finally {
             runInAction(() => {

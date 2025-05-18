@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\lind\\source\\repos\\EthCasino.Bet\\EthCasino.Bet.Contracts\\contracts\\Roulette.sol": {
-      "lastModificationDate": 1743377423004,
-      "contentHash": "25eb5507d983f538f34af22762b80ab6",
+      "lastModificationDate": 1747469438383,
+      "contentHash": "fa96e84e7485a35c81f59125e4f23ea0",
       "sourceName": "contracts/Roulette.sol",
       "solcConfig": {
         "version": "0.8.28",
