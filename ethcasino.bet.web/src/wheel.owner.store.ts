@@ -13,15 +13,15 @@ export class OwnerViewModel {
         makeAutoObservable(this);
     }
     toggleOpen() {
-        let canOpen = false;
-        if (!this.isOpen && this.isloaded && this.isOwner) {
-            canOpen = true;
-        }
-        if (canOpen) {
+        if (this.isloaded && this.isOwner) {
             runInAction(() => {
                 this.isOpen = !this.isOpen;
             });
         }
+        else
+            runInAction(() => {
+                this.isOpen = false
+            });
     }
     async load() {
         try {

@@ -15,7 +15,6 @@ export const OwnerView = observer(({ viewModel }: OwnerViewModelParameter) => (
         <CModal
             alignment="center"
             visible={viewModel.isOpen}
-            onClose={() => viewModel.toggleOpen()}
             backdrop="static"
         >
             <CModalHeader closeButton>
