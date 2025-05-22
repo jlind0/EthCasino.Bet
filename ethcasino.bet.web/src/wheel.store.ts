@@ -5,6 +5,7 @@ import { Wheel__factory } from './typechain/factories/contracts/Roulette.sol';
 import { DoubleStreetBetViewModel, StreetBetViewModel, SplitBetViewModel, CornerBetViewModel, ColumnBetViewModel, DozenBetViewModel, ColorBetViewModel, EighteenBetViewModel, StraightUpBetViewModel, TopLineBetViewModel, ParityBetViewModel } from './wheel.bet.store';
 import { OwnerViewModel } from './wheel.owner.store';
 import { AccountViewModel } from './wheel.account.store';
+import { WheelManagerViewModel } from './wheel.manager.store';
 
 const subscriptionId: string = import.meta.env.VITE_CHAINLINK_VRF_SUBSCRIPTION_ID;
 
@@ -31,6 +32,7 @@ export class WheelStore implements ContractModel {
     topLineVM: TopLineBetViewModel;
     ownerVM: OwnerViewModel;
     accountVM: AccountViewModel;
+    managerVM: WheelManagerViewModel;
     constructor() {
         makeAutoObservable(this);
         this.streetVM = new StreetBetViewModel(this);
@@ -46,7 +48,7 @@ export class WheelStore implements ContractModel {
         this.topLineVM = new TopLineBetViewModel(this);
         this.ownerVM = new OwnerViewModel(this);
         this.accountVM = new AccountViewModel(this);
-
+        this.managerVM = new WheelManagerViewModel(this);
     }
     async handleSetupProvider() {
         try {
@@ -121,6 +123,7 @@ export class WheelStore implements ContractModel {
             });
             await this.ownerVM.load();
             await this.accountVM.load();
+            await this.managerVM.load();
 
         } finally {
             runInAction(() => {

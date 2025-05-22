@@ -7,6 +7,7 @@ import { CButton } from '@coreui/react';
 import { PlaceColorBetView, PlaceColumnBetView, PlaceParityBetView, PlaceStreetBetView, PlaceDozenBetView, PlaceEighteenBetView, PlaceDoubleStreetBetView, PlaceSplitBetView, PlaceCornerBetView, PlaceStraightUpBetView, PlaceTopLineBetView } from './wheel.bet';
 import { OwnerView } from './wheel.owner';
 import { AccountView } from './wheel.account';
+import { WheelManagerView } from './wheel.manager';
 const wheelStore = new WheelStore();
 
 const WheelView = observer(({ store }: WheelStoreParameter) => (
@@ -18,6 +19,7 @@ const WheelView = observer(({ store }: WheelStoreParameter) => (
         {store.wheel && !store.isLoading && !store.ownerVM.isOwner && (
             <AccountView viewModel={store.accountVM} />
         )}
+        <WheelManagerView viewModel={store.managerVM}/>
         <PlaceStreetBetView parameter={store.streetVM} />
         <PlaceColumnBetView parameter={store.columnVM} />
         <PlaceParityBetView parameter={store.pairityVM} />
